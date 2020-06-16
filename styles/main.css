@@ -1,0 +1,102 @@
+:root {
+    --main-bg: #000000;
+    --main-bg2: #1b0033;
+    --main-fg: #FFFFFF;
+    --main-color: #010165;
+    --sub-color: #020286;
+    --timeing: 0.3s;
+}
+
+/* Main */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0; padding: 0;
+    min-height: 100vh;
+    font-size: 16px;
+    font-family: monospace;
+    background-color: black; color: white;
+}
+.page {
+    display: flex;
+    flex-direction: column;
+    height: 200vh;
+}
+
+/* Waring */
+.warning {
+    position: fixed;
+    left: 15px; bottom: 15px; z-index: 200;
+    width: 25vw; height: auto;
+    min-width: 270px;
+    background-color: darkred; color: white;
+    padding: 15px;
+    text-align: center;
+}
+.warning_title {
+    width: 100%; border-bottom: 2px solid yellow; color: yellow;
+}
+
+/* Button scroll to top */
+#scrollToTop {
+    position: fixed;
+    bottom: -30px; right: -30px;
+    width: 40px; height: 40px;
+    background-color: var(--main-color, darkblue);
+    border-width: 0;
+    border-radius: 100% 0 0 0;
+    display: block;
+    visibility: hidden;
+    transition: all var(--timeing);
+}
+#scrollToTop::before, #scrollToTop::after {
+    content: "";
+    display: block;
+    width: 18px; height: 3px;
+    background-color: var(--main-fg);
+    position: absolute;
+    bottom: 22px;
+}
+#scrollToTop::before {
+    transform-origin: right center;
+    transform: rotate(-45deg);
+    right: 14px;
+}
+#scrollToTop::after {
+    transform-origin: left center;
+    transform: rotate(45deg);
+    right: -2px;
+    width: 19px;
+}
+#scrollToTop:focus {
+    outline-width: 0;
+}
+/* Login */
+#login>.modal_inner {
+    max-width: 400px; max-height: 250px;
+}
+#login form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#login input {
+    margin: 10px;
+    text-align: center;
+    width: 90%;
+    font-size: 20px;
+    padding: 3px;
+    border: 3px solid var(--main-color); border-radius: 8px;
+}
+#login .tab_contents, #login .tab_content {
+    height: 100%;
+}
+
+/* Test */
+footer {
+    background-color: blue;
+    height: 40px;
+    margin-top: auto;
+}

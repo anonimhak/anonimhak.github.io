@@ -1,0 +1,27 @@
+.tabs_buttons {
+    display: flex;
+    justify-content: center;
+    border-bottom: 3px solid var(--main-color);
+}
+.tab_button {
+    border-width: 0;
+    background-color: inherit; color: var(--main-fg);
+    padding: 10px;
+    flex-grow: 1;
+}
+.tab_button.active {
+    background-color: var(--main-color);
+    font-weight: 800;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+.tab_button:focus {
+    outline-width: 0;
+}
+
+.tab_content {
+    display: none;
+}
+.tab_content.active {
+    display: block;
+}

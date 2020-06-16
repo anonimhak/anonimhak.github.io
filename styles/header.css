@@ -1,0 +1,100 @@
+header {
+    background-color: var(--main-color, darkblue);
+    height: 60px; width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    top: 0; left: 0; right: 0; z-index: 400;
+}
+.header_inner {
+    width: 100%; max-width: 1000px;
+    height: 100%;
+    background-color: var(--sub-color, blue);
+    margin: 0 auto;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Menu button */
+.menu_btn {
+    display: none; position: relative;
+    width: 40px; height: 34px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    cursor: pointer;
+    margin-top: 10px; margin-right: 10px;
+}
+.menu_btn::before, .menu_btn::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 30px; height: 8px;
+    background-color: white;
+    transition: top var(--timeing) var(--timeing), transform var(--timeing) 0s;
+}
+.menu_btn::before {top: 5px; left: 5px;}
+.menu_btn::after {top: 21px; left: 5px;}
+.active.menu_btn::before, .active.menu_btn::after {
+    transition: top var(--timeing) 0s, transform var(--timeing) var(--timeing);
+}
+.active.menu_btn::before {
+    top: 13px;
+    transform: rotate(45deg);
+}
+.active.menu_btn::after {
+    top: 13px;
+    transform: rotate(-45deg);
+}
+
+.navigation {
+    height: 100%;
+}
+.nav_list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+}
+.nav_item {
+    padding: 10px 20px;
+    cursor: pointer;
+    height: 100%;
+    font-weight: 800;
+}
+@media (min-width: 900px) {
+.nav_item:hover {
+    background-color: rgba(0,0,0,0.4);
+    text-decoration: underline;
+}
+}
+.nav_item:active {
+    background-color: rgba(0,0,0,0.7);
+}
+
+@media (max-width: 630px) {
+    .header_inner {justify-content: flex-start;}
+    .navigation {order: -1;}
+    .nav_list {
+        visibility: hidden;
+        position: fixed;
+        top: 45px; left: -100%; bottom: 0; z-index: 110;
+        background-color: var(--main-bg2);
+        box-shadow: 5px 3px 30px var(--sub-color);
+        flex-direction: column;
+        width: 80%; max-width: 250px;
+        padding: 0;
+        transition: all var(--timeing);
+    }
+    .active.nav_list {
+        visibility: visible; left: 0;
+    }
+    .nav_item {
+        height: auto;
+        border-bottom: 2px solid var(--main-color);
+    }
+    .menu_btn {display: block;}
+    .toggles {
+        margin-left: auto;
+    }
+}

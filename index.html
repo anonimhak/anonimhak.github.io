@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Title -->
+    <title>AnonimHak</title>
+<!-- Links -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/elements.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="styles/tabs.css">
+</head>
+<body>
+<noscript class="warning">
+    <h2 class="warning_title">Error</h2>
+    <p>
+        JavaScript don`t working!<br>
+        If .
+    </p>
+</noscript>
+
+<div class="modals">
+    <div class="modal" id="login">
+        <div class="modal_inner">
+            <div class="modal_head">
+                <h2 class="modal_title">Login</h2>
+            </div>
+            <div class="modal_content">
+                <div class="tabs">
+                    <div class="tabs_buttons">
+                        <button class="tab_button active" onclick="tab_togle(this)" value="tab-1">Sign IN</button>
+                        <button class="tab_button" onclick="tab_togle(this)" value="tab-2">Sign UP</button>
+                    </div>
+                    <div class="tabs_contents">
+                        <div class="tab_content active" id="tab-1">
+                            <form action="#" method="post">
+                                <input type="text" name="login" placeholder="login">
+                                <input type="password" name="password" placeholder="password">
+                                <button class="btn" type="submit">Submit</button>
+                            </form>
+                        </div>
+                        <div class="tab_content" id="tab-2">
+                            <form action="#" method="post">
+                                <input type="text" name="login" placeholder="login">
+                                <input type="password" name="password" placeholder="password">
+                                <button class="btn" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>>
+</div>
+
+<div class="page">
+    <header>
+        <div class="header_inner">
+            <div class="logo">
+                <h1>AnonimHak</h1>
+            </div>
+            <nav class="navigation">
+                <button class="menu_btn" id="menu_toggle" onclick="menu_toggle(this)"></button>
+                <ul class="nav_list" id="menu">
+                    <li class="nav_item">Home</li>
+                    <li class="nav_item">Articles</li>
+                    <li class="nav_item">Forums</li>
+                    <li class="nav_item">About</li>
+                </ul>
+            </nav>
+            <div class="toggles">
+                <button class="btn border settings_btn" onclick="modalOpen(this)" value="login">Login</button>
+            </div>
+        </div>
+    </header>
+    <main class="menu_close"></main>
+    <footer class="menu_close">
+        <div class="footer_inner">
+            <span class="copyleft">CopyLeft AnonimHak © 2018-2020</span>
+        </div>
+    </footer>
+</div>
+
+<!-- Import scripts -->
+<script src="scripts/scroll.js"></script>
+<script src="scripts/nav.js"></script>
+<script src="scripts/modalWindow.js"></script>
+<script src="scripts/tabs.js"></script>
+
+</body>
+</html>
