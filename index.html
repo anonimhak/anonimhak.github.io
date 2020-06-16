@@ -54,6 +54,16 @@
             </div>
         </div>
     </div>>
+    <div class="modal" id="settings">
+        <div class="modal_inner">
+            <div class="modal_head">
+                <h2 class="modal_title">Settings</h2>
+            </div>
+            <div class="modal_content">
+                <input type="color" ondblclick="setColor(this)">
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="page">
@@ -66,13 +76,21 @@
                 <button class="menu_btn" id="menu_toggle" onclick="menu_toggle(this)"></button>
                 <ul class="nav_list" id="menu">
                     <li class="nav_item">Home</li>
-                    <li class="nav_item">Articles</li>
+                    <li class="nav_item nav_item_list">
+                        Articles
+                        <ul class="nav_sub_list">
+                            <li class="nav_item nav_sub_item">Windows</li>
+                            <li class="nav_item nav_sub_item">Linux</li>
+                            <li class="nav_item nav_sub_item">Android</li>
+                        </ul>
+                    </li>
                     <li class="nav_item">Forums</li>
                     <li class="nav_item">About</li>
                 </ul>
             </nav>
             <div class="toggles">
-                <button class="btn border settings_btn" onclick="modalOpen(this)" value="login">Login</button>
+                <button class="btn border" onclick="modalOpen(this)" value="login">Login</button>
+                <button class="btn" onclick="modalOpen(this)" value="settings">Settings</button>
             </div>
         </div>
     </header>
@@ -89,6 +107,7 @@
 <script src="scripts/nav.js"></script>
 <script src="scripts/modalWindow.js"></script>
 <script src="scripts/tabs.js"></script>
+<script src="scripts/settings.js"></script>
 
 </body>
 </html>
