@@ -1,13 +1,43 @@
-let styles = getComputedStyle(document.documentElement);
-let timeing = styles.getPropertyValue("--timeing").replace("s", "") * 1000;
-function menu_toggle(event) {
-    event.disabled = true;
-    event.classList.toggle("active");
-    setTimeout(()=>{event.disabled = false;}, timeing*2);
-    document.getElementById("menu").classList.toggle("active");
-    let els = document.getElementsByClassName("menu_close");
-    Array.prototype.forEach.call(els, function(el) {
-        // Do stuff here
-        console.log(el.tagName);
-    });
+function menuOpen() {
+    let btn = document.getElementById("menu_toggle");
+    document.getElementById("menu").classList.add("active");
+    scrollLocked();
+    forEscape = menuClose;
 }
+function menuClose() {
+    let btn = document.getElementById("menu_toggle");
+    document.getElementById("menu").classList.remove("active");
+    scrollUnLocked();
+    forEscape = null;
+}
+
+document.getElementById("menu_open").addEventListener("click", menuOpen);
+document.getElementById("menu_close").addEventListener("click", menuClose);
+
+function subMenuToggle() {
+    this.getElementsByClassName("nav_sub_list")[0].classList.toggle("active");
+    this.classList.toggle("rotate");
+}
+function subMenuOpen() {this.getElementsByClassName("nav_sub_list")[0].classList.add("active");}
+function subMenuClose() {this.getElementsByClassName("nav_sub_list")[0].classList.remove("active");}
+
+function resizeHandler () {
+    let subMenu = document.getElementsByClassName("nav_item_list");
+    if (window.innerWidth >= 760) {
+        Array.prototype.forEach.call(subMenu, function(el) {
+            el.removeEventListener("click", subMenuToggle);
+            el.addEventListener("mouseenter", subMenuOpen);
+            el.addEventListener("mouseleave", subMenuClose);
+        });
+    }
+    else {
+        Array.prototype.forEach.call(subMenu, function(el) {
+            el.addEventListener("click", subMenuToggle);
+            el.removeEventListener("mouseenter", subMenuOpen);
+            el.removeEventListener("mouseleave", subMenuClose);
+        });
+    }
+}
+resizeHandler();
+
+window.onresize = resizeHandler;

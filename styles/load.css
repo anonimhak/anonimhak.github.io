@@ -1,0 +1,30 @@
+.load {
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0; z-index: 997;
+    opacity: 1; visibility: visible;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: all var(--timeing, 0.3s);
+}
+.done.load {
+    opacity: 0; visibility: hidden;
+}
+.done.load>.load_span {animation: none;}
+.load_span {
+    position: absolute;
+    top: 50%; left: 50%; z-index: 998;
+    width: 80px; height: 80px;
+    transform: translate(-50%, -50%);
+    border: 10px solid white;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: 1.5s spin infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}

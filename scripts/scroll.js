@@ -1,21 +1,40 @@
+let scrollLock = false;
+let scrollLocation = [0, 0]; // Left Top
+
 function scrollToTop() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
 
-let b = document.body || document.getElementsByTagName("body")[0];
-b.insertAdjacentHTML("beforeend", '<button id="scrollToTop" title="Scroll to TOP" onclick="scrollToTop()"></button>');
+let body = document.body || document.documentElement;
+body.insertAdjacentHTML("beforeend", '<button id="scrollToTop" title="Scroll to TOP"><svg class="icon"><use xlink:href="#icon_up"></use></svg></button>');
 
-window.onscroll = function() {
-    let t = document.getElementById("scrollToTop");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        t.style.bottom = "0";
-        t.style.right = "0";
-        t.style.visibility = "visible";
+document.getElementById("scrollToTop").addEventListener("click", scrollToTop);
+
+function scrollUnLocked() {
+    scrollLocation[0] = 0;
+    scrollLocation[1] = 0;
+    scrollLock = false;
+}
+function scrollLocked() {
+    scrollLocation[1] = window.pageYOffset || document.documentElement.scrollTop;
+	scrollLocation[0] = window.pageXOffset || document.documentElement.scrollLeft;
+    scrollLock = true;
+}
+
+function pageScrollHandler() {
+    if (scrollLock) {
+        window.scrollTo(scrollLocation[0], scrollLocation[1]);
     } else {
-        t.style.bottom = "-30px";
-        t.style.right = "-30px";
-        t.style.visibility = "hidden";
+        let btnToTop = document.getElementById("scrollToTop");
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            btnToTop.classList.add("active");
+        } else {
+            btnToTop.classList.remove("active");
+        }
     }
-};
+}
+pageScrollHandler();
+
+window.onscroll = pageScrollHandler;

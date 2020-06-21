@@ -1,9 +1,11 @@
 :root {
     --main-bg: #000000;
-    --main-bg2: #1b0033;
-    --main-fg: #FFFFFF;
+    --main-bg2: #1B0033;
+    --main-fg: #DEDEDE;
     --main-color: #010165;
     --sub-color: #020286;
+    --font-size: 16px;
+    --font-famaly: 'Open Sans';
     --timeing: 0.3s;
 }
 
@@ -14,9 +16,9 @@
 html, body {
     margin: 0; padding: 0;
     min-height: 100vh;
-    font-size: 16px;
-    font-family: monospace;
-    background-color: black; color: white;
+    font-size: var(--font-size, 16px);
+    font-family: var(--font-famaly) monospace;
+    background-color: var(--main-bg, #111111); color: var(--main-fg, #AFAFAF);
 }
 .page {
     display: flex;
@@ -27,48 +29,38 @@ html, body {
 /* Waring */
 .warning {
     position: fixed;
-    left: 15px; bottom: 15px; z-index: 200;
+    top: 50%; left: 50%; z-index: 999;
     width: 25vw; height: auto;
+    transform: translate(-50%, -50%);
     min-width: 270px;
     background-color: darkred; color: white;
     padding: 15px;
     text-align: center;
 }
 .warning_title {
-    width: 100%; border-bottom: 2px solid yellow; color: yellow;
+    width: 100%; border-bottom: 2px solid var(--main-color, #010165); color: var(--main-color, #010165);
 }
 
 /* Button scroll to top */
 #scrollToTop {
     position: fixed;
-    bottom: -30px; right: -30px;
-    width: 40px; height: 40px;
-    background-color: var(--main-color, darkblue);
-    border-width: 0;
-    border-radius: 100% 0 0 0;
+    bottom: 20px; right: 20px;
+    width: 50px; height: 50px;
+    background-color: var(--main-color, #010165);
+    border-width: 0; border-radius: 50%;
     display: block;
     visibility: hidden;
-    transition: all var(--timeing);
+    opacity: 0;
+    cursor: pointer;
+    padding: 0;
+    transition: all var(--timeing, 0.3s);
 }
-#scrollToTop::before, #scrollToTop::after {
-    content: "";
-    display: block;
-    width: 18px; height: 3px;
-    background-color: var(--main-fg);
-    position: absolute;
-    bottom: 22px;
+#scrollToTop>.icon {
+    fill: white;
+    width: 40px; height: 40px;
 }
-#scrollToTop::before {
-    transform-origin: right center;
-    transform: rotate(-45deg);
-    right: 14px;
-}
-#scrollToTop::after {
-    transform-origin: left center;
-    transform: rotate(45deg);
-    right: -2px;
-    width: 19px;
-}
+#scrollToTop.active {opacity: 0.5;visibility: visible;}
+#scrollToTop:hover {opacity: 1;}
 #scrollToTop:focus {
     outline-width: 0;
 }
@@ -94,9 +86,9 @@ html, body {
     height: 100%;
 }
 
+/* Icon */
+.icon {width: 30px; height: 30px; fill: var(--main-fg, #FFFFFF);}
+.icon_close {width: 30px; height: 30px;}
+
 /* Test */
-footer {
-    background-color: blue;
-    height: 40px;
-    margin-top: auto;
-}
+

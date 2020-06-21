@@ -8,6 +8,7 @@
     background-color: inherit; color: var(--main-fg);
     padding: 10px;
     flex-grow: 1;
+    cursor: pointer;
 }
 .tab_button.active {
     background-color: var(--main-color);

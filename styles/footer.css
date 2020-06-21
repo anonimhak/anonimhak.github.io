@@ -1,0 +1,15 @@
+footer {
+    background-color: var(--main-color, #010165);
+    height: 40px;
+    margin-top: auto;
+}
+.footer_inner {
+    width: 100%; max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}

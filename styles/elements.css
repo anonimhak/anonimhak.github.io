@@ -15,7 +15,7 @@
 }
 .btn>.icon {
     height: 1em;
-    width: auto;
+    width: 1em;
     margin: 0;
     margin-right: 5px;
 }
@@ -23,6 +23,9 @@
 /* Colors */
     background-color: var(--sub-color, #555555);
     color: var(--btn-hover-fg, #FFFFFF);
+}
+.btn:hover>.icon {
+    fill: var(--main-color);
 }
 .btn:active {
 /* Colors */
