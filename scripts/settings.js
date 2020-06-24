@@ -18,17 +18,40 @@ let colors = {
         "blue": ["#00009D", "#000085", "#000065"]
     }
 };
+let thisColors = {
+    "main": NaN,
+    "bg": NaN,
+    "fg": NaN
+}
+
+function savaConfigColors() {
+    localStorage.setItem("colors", JSON.stringify(thisColors));
+}
+function importConfigColors() {
+    let _Colors = localStorage.getItem("colors");
+    if (_Colors) {
+        thisColors = JSON.parse(_Colors);
+        setColor(thisColors.main);
+        setBg(thisColors.bg);
+        setFg(thisColors.fg);
+    }
+}
+importConfigColors();
 
 document.getElementsByName("color_main").forEach(function(el) {
     let color = colors["main"][el.getAttribute("value")];
     el.style.backgroundColor = color[0];
     el.onchange = setColor;
 });
-function setColor() {
-    let color = colors["main"][this.getAttribute("value")];
+function setColor(c) {
+    const colorName = this.value || c;
+    console.log(colorName);
+    let color = colors["main"][colorName];
+    thisColors["main"] = colorName;
     document.documentElement.style.setProperty("--main-color", color[0]);
     document.documentElement.style.setProperty("--sub-color", color[1]);
     document.documentElement.style.setProperty("--main-bg2", color[2]);
+    savaConfigColors();
 }
 
 document.getElementsByName("color_bg").forEach(function(el) {
@@ -36,9 +59,12 @@ document.getElementsByName("color_bg").forEach(function(el) {
     el.style.backgroundColor = color;
     el.onchange = setBg;
 });
-function setBg() {
-    let color = this.value;
+function setBg(c) {
+    const color = this.value || c;
+    console.log(color);
+    thisColors["bg"] = color;
     document.documentElement.style.setProperty("--main-bg", colors["bg"][color]);
+    savaConfigColors();
 }
 
 document.getElementsByName("color_fg").forEach(function(el) {
@@ -46,7 +72,10 @@ document.getElementsByName("color_fg").forEach(function(el) {
     el.style.backgroundColor = color;
     el.onchange = setFg;
 });
-function setFg() {
-    let color = this.value;
+function setFg(c) {
+    const color = this.value || c;
+    console.log(color);
+    thisColors["fg"] = color;
     document.documentElement.style.setProperty("--main-fg", colors["fg"][color]);
+    savaConfigColors();
 }
