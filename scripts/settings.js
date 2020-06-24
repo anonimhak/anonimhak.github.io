@@ -10,17 +10,25 @@ let colors = {
         "dark": "#AFAFAF",
         "light": "#333333",
         "white": "#000000"
+    },
+    "main": {
+        "red": ["#FF0000", "#AA0000", "#770000"],
+        "yellow": ["#CEFF00", "#78C800", "#828200"],
+        "green": ["#00C100", "#00A600", "#005000"],
+        "blue": ["#00009D", "#000085", "#000065"]
     }
 };
 
 document.getElementsByName("color_main").forEach(function(el) {
-    let color = el.getAttribute("value");
-    el.style.backgroundColor = color;
+    let color = colors["main"][el.getAttribute("value")];
+    el.style.backgroundColor = color[0];
     el.onchange = setColor;
 });
 function setColor() {
-    let color = this.getAttribute("value");
-    document.documentElement.style.setProperty("--main-color", color);
+    let color = colors["main"][this.getAttribute("value")];
+    document.documentElement.style.setProperty("--main-color", color[0]);
+    document.documentElement.style.setProperty("--sub-color", color[1]);
+    document.documentElement.style.setProperty("--main-bg2", color[2]);
 }
 
 document.getElementsByName("color_bg").forEach(function(el) {
