@@ -3,7 +3,7 @@ header {
     background-color: var(--main-color, #010165);
     height: 60px; width: 100vw;
     position: fixed;
-    top: 0; left: 0; right: 0; z-index: 500;
+    top: 0; left: 0; right: 0; z-index: 400;
 }
 .header_inner {
     width: 100%; max-width: 1200px;
@@ -26,7 +26,7 @@ header {
     margin-top: 10px; margin-right: 10px;
 }
 #menu_close {
-    width: 100%;
+    width: 100%; height: 50px;
     text-align: center;
     color: white;
     font-size: 24px;
@@ -42,15 +42,12 @@ header {
 
 /* Navigation */
 .navigation {height: 100%;}
-.nav_list {
-    list-style: none;
-    display: flex;
-    height: 100%;
-}
+.nav_list {height: 100%;}
 .nav_item {
-    padding: 10px 20px;
+    display: inline-block;
+    padding: 10px 20px; margin: 0;
     cursor: pointer;
-    height: 40px;
+    height: 100%;
     font-weight: 800;
     position: relative;
 }
@@ -95,31 +92,33 @@ header {
 }
 
 @media (max-width: 760px) {
+    header {height: 45px;}
     .header_inner {justify-content: flex-start;}
     .navigation {order: -1;}
     .nav_list {
         visibility: hidden;
-        position: fixed;
-        top: -20px; left: -100%; bottom: 0; z-index: 110;
+        position: fixed; display: block;
+        top: -20px; left: -100%; bottom: 0; z-index: 800;
         background-color: var(--main-bg2, #1B0033);
-        box-shadow: 5px 3px 30px var(--sub-color, 020286);
-        flex-direction: column;
+        box-shadow: 5px 3px 30px var(--sub-color, #020286);
         width: 80%; max-width: 250px;
         padding: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
         transition: all var(--timeing, 0.3s);
     }
     .active.nav_list {visibility: visible; left: 0;}
     .nav_item {
-        height: auto;
+        display: block;
+        height: 20px;
         border-bottom: 2px solid var(--main-color, #010165);
-        padding-left: 30px;
+        padding: 30px;
     }
     .menu_btn {display: block;}
     #menu_close {display: flex;}
     .toggles {margin-left: auto;}
     .nav_item_list {padding-right: 20px}
     .nav_item_list::after {
-        left: 10px; right: auto;
         transform: rotate(-90deg);
     }
     .rotate.nav_item_list::after {

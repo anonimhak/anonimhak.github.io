@@ -4,10 +4,11 @@ function modalOpen(event) {
     let id = event.getAttribute("value");
     let modal = document.getElementById(id);
     modals.push(modal);
-    modal.style.top = "0";
+    modal.style.top = "50%";
     modal.style.visibility = "visible";
     scrollLocked();
     forEscape = modalClose;
+    eclipseOpen(modalClose);
 }
 function modalClose() {
     let modal = modals.pop(-1);
@@ -15,6 +16,7 @@ function modalClose() {
     modal.style.visibility = "hidden";
     scrollUnLocked();
     forEscape = null;
+    eclipseClose();
 }
 
 let heads = document.getElementsByClassName("modal_head");

@@ -3,12 +3,14 @@ function menuOpen() {
     document.getElementById("menu").classList.add("active");
     scrollLocked();
     forEscape = menuClose;
+    eclipseOpen(menuClose);
 }
 function menuClose() {
     let btn = document.getElementById("menu_toggle");
     document.getElementById("menu").classList.remove("active");
     scrollUnLocked();
     forEscape = null;
+    eclipseClose();
 }
 
 document.getElementById("menu_open").addEventListener("click", menuOpen);

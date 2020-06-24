@@ -8,7 +8,7 @@
 .done.load {
     opacity: 0; visibility: hidden;
 }
-.done.load>.load_span {animation: none;}
+.done.load>.load_span {animation-play-state: paused;}
 .load_span {
     position: absolute;
     top: 50%; left: 50%; z-index: 998;
