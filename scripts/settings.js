@@ -61,11 +61,11 @@ else {thisColors = defaultColors;}
 setAllColors();
 delete _colors;
 
-document.getElementsByName("color_main").forEach(function(el) {
+for (let el of document.getElementsByName("color_main")) {
     let color = colors["main"][el.getAttribute("value")];
     el.style.backgroundColor = color[0];
     el.onchange = setColor;
-});
+}
 function setColor(c) {
     const colorName = this.value || c;
     thisColors["main"] = colorName;
@@ -76,11 +76,11 @@ function setColor(c) {
     savaConfigColors();
 }
 
-document.getElementsByName("color_bg").forEach(function(el) {
+for (let el of document.getElementsByName("color_bg")) {
     let color = colors["bg"][el.getAttribute("value")];
     el.style.backgroundColor = color;
     el.onchange = setBg;
-});
+}
 function setBg(c) {
     const color = this.value || c;
     thisColors["bg"] = color;
@@ -88,11 +88,11 @@ function setBg(c) {
     savaConfigColors();
 }
 
-document.getElementsByName("color_fg").forEach(function(el) {
+for (let el of document.getElementsByName("color_fg")) {
     let color = colors["fg"][el.getAttribute("value")];
     el.style.backgroundColor = color;
     el.onchange = setFg;
-});
+}
 function setFg(c) {
     const color = this.value || c;
     thisColors["fg"] = color;

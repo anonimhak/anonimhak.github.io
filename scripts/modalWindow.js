@@ -19,7 +19,6 @@ function modalClose() {
     eclipseClose();
 }
 
-let heads = document.getElementsByClassName("modal_head");
-Array.prototype.forEach.call(heads, function(head) {
+for (let head of document.getElementsByClassName("modal_head")) {
     head.insertAdjacentHTML("beforeend", '<button class="modal_btn_close" title="Close this modal window" onclick="modalClose()"><svg class="icon"><use xlink:href="#icon_close"></use></svg></button>');
-});
+}

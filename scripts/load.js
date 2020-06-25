@@ -1,4 +1,4 @@
-document.body.onload = function() {
+window.onload = function() {
     setTimeout(function() {
         let load = document.getElementById("page_load");
         if (!load.classList.contains("done")) {
