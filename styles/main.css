@@ -65,7 +65,7 @@ html, body {
     outline-width: 0;
 }
 /* Login */
-#login>.modal_inner {
+#login {
     max-width: 400px; max-height: 250px;
 }
 #login form {
@@ -84,6 +84,11 @@ html, body {
 }
 #login .tab_contents, #login .tab_content {
     height: 100%;
+}
+
+/* Settings */
+#settings {
+    max-width: 300px; max-height: 450px;
 }
 
 /* eclipse */
