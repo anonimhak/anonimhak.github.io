@@ -23,7 +23,7 @@ const defaultColors = {
     "bg": "black",
     "fg": "white"
 };
-let thisColors = Object.assign({}, defaultColors);
+let thisColors = {...defaultColors};
 
 function checkedElements() {
     let colorMain = document.getElementsByName("color_main");
@@ -98,6 +98,6 @@ function setFg(c) {
 document.getElementById("btnResetColors").onclick = resetColors;
 
 function resetColors() {
-    thisColors = Object.assign({}, defaultColors);
+    thisColors = {...defaultColors};
     setAllColors();
 }

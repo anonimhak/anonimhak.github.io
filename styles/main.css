@@ -103,6 +103,7 @@ html, body {
 
 /* Icon */
 .icon {width: 30px; height: 30px; fill: var(--main-fg, #FFFFFF);}
+.icon_inner {fill: rgba(0,0,0,0);}
 .icon_close {width: 30px; height: 30px;}
 
 /* Header */
