@@ -18,16 +18,12 @@ let colors = {
         "white": "#FFFFFF"
     }
 };
-let thisColors = {
-    "main": NaN,
-    "bg": NaN,
-    "fg": NaN
-}
-let defaultColors = {
+const defaultColors = {
     "main": "blue",
     "bg": "black",
     "fg": "white"
-}
+};
+let thisColors = Object.assign({}, defaultColors);
 
 function checkedElements() {
     let colorMain = document.getElementsByName("color_main");
@@ -57,7 +53,6 @@ function setAllColors() {
 
 let _colors = localStorage.getItem("colors");
 if (_colors) {thisColors = JSON.parse(_colors);}
-else {thisColors = defaultColors;}
 setAllColors();
 delete _colors;
 
@@ -103,6 +98,6 @@ function setFg(c) {
 document.getElementById("btnResetColors").onclick = resetColors;
 
 function resetColors() {
-    thisColors = defaultColors;
+    thisColors = Object.assign({}, defaultColors);
     setAllColors();
 }
