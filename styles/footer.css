@@ -13,3 +13,15 @@ footer {
     align-items: center;
     background-color: var(--sub-color);
 }
+
+@media (max-width: 365px) {
+    footer {height: auto;}
+    .footer_inner {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .soc_networks {
+        align-self: flex-end;
+    }
+}

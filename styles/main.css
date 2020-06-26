@@ -117,8 +117,12 @@ main {
     padding: 20px;
     align-self: center;
 }
-.main_head {border-bottom: 2px solid green;}
+.main_head {border-bottom: 2px solid var(--main-color);}
 .main_head>* {display: inline-block; margin-right: 20px;}
+.main_body {
+    margin-top: 20px;
+    padding: 0 4px;
+}
 
 @media (max-width: 760px) {
     main {margin-top: 55px;}
