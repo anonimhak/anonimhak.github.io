@@ -1,4 +1,4 @@
-let colors = {
+const colors = {
     "main": {
         "red": ["#FF0000", "#AA0000", "#770000"],
         "yellow": ["#CEFF00", "#78C800", "#828200"],
@@ -26,17 +26,14 @@ const defaultColors = {
 let thisColors = {...defaultColors};
 
 function checkedElements() {
-    let colorMain = document.getElementsByName("color_main");
-    for (let c of colorMain) {
+    for (let c of document.getElementsByName("color_main")) {
         if (c.value == thisColors.main) {c.checked = true;}
     }
-    let colorBg = document.getElementsByName("color_bg");
-    for (let c of colorBg) {
-        if (c.value == thisColors.main) {c.checked = true;}
+    for (let c of document.getElementsByName("color_bg")) {
+        if (c.value == thisColors.bg) {c.checked = true;}
     }
-    let colorFg = document.getElementsByName("color_bg");
-    for (let c of colorFg) {
-        if (c.value == thisColors.main) {c.checked = true;}
+    for (let c of document.getElementsByName("color_fg")) {
+        if (c.value == thisColors.fg) {c.checked = true;}
     }
 }
 checkedElements();
